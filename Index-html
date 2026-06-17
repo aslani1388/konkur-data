@@ -1,0 +1,1224 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ثبت‌نام کنکور فرهنگیان</title>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  /* ===== همه استایل‌های قبلی شما همینجا ===== */
+  @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700&display=swap');
+
+  :root {
+    --green-dark:   #1B4332;
+    --green-mid:    #2D6A4F;
+    --green-accent: #40916C;
+    --green-light:  #74C69D;
+    --green-pale:   #D8F3DC;
+    --gold:         #E9B44C;
+    --gold-light:   #FFF3C4;
+    --bg:           #F4FAF6;
+    --white:        #FFFFFF;
+    --text:         #1A2E22;
+    --text-light:   #4A6558;
+    --border:       #B7DFC8;
+    --red:          #C0392B;
+    --orange:       #E67E22;
+    --shadow:       0 4px 24px rgba(27,67,50,0.10);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Vazirmatn', 'Yakan', Tahoma, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    direction: rtl;
+  }
+
+  header {
+    background: linear-gradient(135deg, var(--green-dark) 0%, var(--green-mid) 60%, var(--green-accent) 100%);
+    color: #fff;
+    text-align: center;
+    padding: 40px 20px 30px;
+    position: relative;
+    overflow: hidden;
+  }
+  header::before {
+    content: '';
+    position: absolute;
+    top: -40px; left: -40px;
+    width: 200px; height: 200px;
+    background: rgba(116,198,157,0.15);
+    border-radius: 50%;
+  }
+  header::after {
+    content: '';
+    position: absolute;
+    bottom: -60px; right: -30px;
+    width: 260px; height: 260px;
+    background: rgba(116,198,157,0.10);
+    border-radius: 50%;
+  }
+  .header-badge {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--green-dark);
+    font-size: 12px;
+    font-weight: 700;
+    padding: 4px 14px;
+    border-radius: 20px;
+    margin-bottom: 12px;
+    letter-spacing: 0.5px;
+  }
+  header h1 {
+    font-size: 26px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    position: relative;
+    z-index: 1;
+  }
+  header p {
+    font-size: 14px;
+    opacity: 0.85;
+    position: relative;
+    z-index: 1;
+  }
+
+  .steps-bar {
+    display: flex;
+    justify-content: center;
+    gap: 0;
+    background: var(--white);
+    border-bottom: 2px solid var(--border);
+    padding: 0 20px;
+    overflow-x: auto;
+  }
+  .step-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 20px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-light);
+    border-bottom: 3px solid transparent;
+    cursor: default;
+    white-space: nowrap;
+    transition: all 0.3s;
+  }
+  .step-item.active {
+    color: var(--green-dark);
+    border-bottom-color: var(--green-accent);
+  }
+  .step-item.done {
+    color: var(--green-accent);
+  }
+  .step-num {
+    width: 26px; height: 26px;
+    border-radius: 50%;
+    background: var(--border);
+    color: var(--text-light);
+    font-size: 12px;
+    font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+    transition: all 0.3s;
+  }
+  .step-item.active .step-num {
+    background: var(--green-accent);
+    color: #fff;
+  }
+  .step-item.done .step-num {
+    background: var(--green-light);
+    color: var(--green-dark);
+  }
+
+  .container {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 30px 20px 60px;
+  }
+
+  .card {
+    background: var(--white);
+    border-radius: 16px;
+    box-shadow: var(--shadow);
+    padding: 32px;
+    margin-bottom: 24px;
+    border: 1px solid var(--border);
+  }
+  .card-title {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--green-dark);
+    margin-bottom: 22px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--green-pale);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .card-title-icon {
+    width: 34px; height: 34px;
+    background: var(--green-pale);
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 17px;
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+  .form-row.single { grid-template-columns: 1fr; }
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  label {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text);
+  }
+  input[type="text"],
+  input[type="number"],
+  input[type="tel"],
+  select {
+    font-family: 'Vazirmatn', Tahoma, sans-serif;
+    font-size: 14px;
+    padding: 11px 14px;
+    border: 2px solid var(--border);
+    border-radius: 10px;
+    background: var(--bg);
+    color: var(--text);
+    direction: rtl;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    outline: none;
+    width: 100%;
+  }
+  input:focus, select:focus {
+    border-color: var(--green-accent);
+    box-shadow: 0 0 0 3px rgba(64,145,108,0.12);
+    background: var(--white);
+  }
+  select { cursor: pointer; }
+
+  .percent-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+  .percent-item {
+    background: var(--bg);
+    border: 1.5px solid var(--border);
+    border-radius: 12px;
+    padding: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    transition: border-color 0.2s;
+  }
+  .percent-item:focus-within {
+    border-color: var(--green-accent);
+    background: var(--white);
+  }
+  .percent-label {
+    font-size: 12.5px;
+    font-weight: 600;
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .zarib-badge {
+    font-size: 10.5px;
+    background: var(--green-pale);
+    color: var(--green-dark);
+    padding: 2px 8px;
+    border-radius: 20px;
+    font-weight: 700;
+  }
+  .zarib-badge.gold { background: var(--gold-light); color: #7D4A00; }
+  .percent-input-wrap {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .percent-input-wrap input {
+    flex: 1;
+    text-align: center;
+    padding: 8px 10px;
+    font-size: 15px;
+    font-weight: 600;
+  }
+  .percent-symbol {
+    font-size: 13px;
+    color: var(--text-light);
+    font-weight: 600;
+  }
+
+  .section-label {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--green-accent);
+    margin: 20px 0 12px;
+    padding: 6px 12px;
+    background: var(--green-pale);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .moadel-box {
+    background: linear-gradient(135deg, var(--gold-light), #FFF8E8);
+    border: 2px solid var(--gold);
+    border-radius: 14px;
+    padding: 20px 24px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .moadel-icon {
+    font-size: 36px;
+    flex-shrink: 0;
+  }
+  .moadel-info { flex: 1; }
+  .moadel-info label {
+    font-size: 14px;
+    font-weight: 700;
+    color: #7D4A00;
+    display: block;
+    margin-bottom: 4px;
+  }
+  .moadel-info small {
+    font-size: 11.5px;
+    color: #9A6A00;
+    display: block;
+    margin-top: 4px;
+  }
+  .moadel-info input {
+    font-size: 18px;
+    font-weight: 700;
+    text-align: center;
+    max-width: 140px;
+    border-color: var(--gold);
+    background: #fff;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 13px 28px;
+    font-family: 'Vazirmatn', Tahoma, sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .btn-primary {
+    background: linear-gradient(135deg, var(--green-dark), var(--green-mid));
+    color: #fff;
+    box-shadow: 0 4px 14px rgba(27,67,50,0.25);
+  }
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(27,67,50,0.35);
+  }
+  .btn-secondary {
+    background: var(--bg);
+    color: var(--green-dark);
+    border: 2px solid var(--border);
+  }
+  .btn-secondary:hover { border-color: var(--green-accent); background: var(--white); }
+  .btn-full { width: 100%; }
+  .btn-row {
+    display: flex;
+    gap: 12px;
+    justify-content: flex-end;
+    margin-top: 24px;
+  }
+
+  #result-section { display: none; }
+
+  .result-hero {
+    background: linear-gradient(135deg, var(--green-dark) 0%, var(--green-mid) 100%);
+    color: #fff;
+    border-radius: 16px;
+    padding: 28px;
+    margin-bottom: 24px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .result-hero::before {
+    content: '';
+    position: absolute;
+    top: -30px; right: -30px;
+    width: 150px; height: 150px;
+    background: rgba(255,255,255,0.07);
+    border-radius: 50%;
+  }
+  .result-name {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+  .result-subtitle {
+    font-size: 13px;
+    opacity: 0.8;
+    margin-bottom: 24px;
+  }
+  .result-scores {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 14px;
+    margin-top: 8px;
+  }
+  .score-box {
+    background: rgba(255,255,255,0.12);
+    border-radius: 12px;
+    padding: 16px 12px;
+    backdrop-filter: blur(4px);
+  }
+  .score-box-label {
+    font-size: 11px;
+    opacity: 0.8;
+    margin-bottom: 8px;
+  }
+  .score-box-value {
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--green-light);
+  }
+  .score-box.gold-box .score-box-value {
+    color: var(--gold);
+  }
+
+  .analysis-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 20px;
+  }
+  .analysis-card {
+    border-radius: 12px;
+    padding: 18px;
+    border: 1.5px solid var(--border);
+  }
+  .analysis-card h4 {
+    font-size: 12.5px;
+    font-weight: 700;
+    color: var(--text-light);
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+  }
+  .bar-outer {
+    height: 10px;
+    background: var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 6px;
+  }
+  .bar-inner {
+    height: 100%;
+    border-radius: 10px;
+    background: linear-gradient(90deg, var(--green-accent), var(--green-light));
+    transition: width 1s cubic-bezier(.4,0,.2,1);
+  }
+  .bar-pct {
+    font-size: 12px;
+    color: var(--text-light);
+    text-align: left;
+  }
+
+  .prob-section {
+    background: var(--white);
+    border-radius: 16px;
+    border: 1px solid var(--border);
+    padding: 24px;
+    margin-bottom: 20px;
+    box-shadow: var(--shadow);
+  }
+  .prob-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+  .prob-icon {
+    width: 44px; height: 44px;
+    border-radius: 12px;
+    background: var(--green-pale);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px;
+  }
+  .prob-title { font-size: 16px; font-weight: 700; color: var(--green-dark); }
+  .prob-subtitle { font-size: 12px; color: var(--text-light); }
+
+  .prob-gauge {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  .prob-number {
+    font-size: 52px;
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .prob-label {
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  .prob-high { color: #1B6B3A; }
+  .prob-mid  { color: #B8860B; }
+  .prob-low  { color: #B03A2E; }
+
+  .prob-conditions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .cond-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 10px 14px;
+    border-radius: 10px;
+    font-size: 13px;
+  }
+  .cond-ok    { background: #EAFAF1; color: #1B5E35; }
+  .cond-warn  { background: #FEF9E7; color: #7D6608; }
+  .cond-bad   { background: #FDEDEC; color: #922B21; }
+  .cond-item .cond-icon { flex-shrink: 0; font-size: 15px; margin-top: 1px; }
+
+  .formula-note {
+    background: var(--green-pale);
+    border-right: 4px solid var(--green-accent);
+    padding: 14px 16px;
+    border-radius: 8px;
+    font-size: 12.5px;
+    color: var(--green-dark);
+    line-height: 1.7;
+    margin-top: 20px;
+  }
+  .formula-note strong { font-weight: 700; }
+
+  .error-msg {
+    background: #FDEDEC;
+    border: 1.5px solid #E74C3C;
+    color: #922B21;
+    padding: 10px 14px;
+    border-radius: 8px;
+    font-size: 13px;
+    margin-top: 12px;
+    display: none;
+  }
+
+  .hidden { display: none !important; }
+
+  .toast {
+    background: #D4EDDA;
+    color: #155724;
+    padding: 14px 20px;
+    border-radius: 12px;
+    border: 1px solid #C3E6CB;
+    margin-top: 16px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 14px;
+  }
+
+  @media (max-width: 600px) {
+    .form-row { grid-template-columns: 1fr; }
+    .percent-grid { grid-template-columns: 1fr; }
+    .result-scores { grid-template-columns: 1fr; }
+    .analysis-grid { grid-template-columns: 1fr; }
+    .card { padding: 20px 16px; }
+    .score-box-value { font-size: 22px; }
+    .prob-number { font-size: 40px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-badge">ویژه کنکور ۱۴۰۵</div>
+  <h1>🎓 ماشین حساب کنکور فرهنگیان</h1>
+  <p>محاسبه تراز کنکور، تراز معدل و احتمال دعوت به مصاحبه</p>
+</header>
+
+<!-- STEPS -->
+<div class="steps-bar">
+  <div class="step-item active" id="st1"><div class="step-num">۱</div>اطلاعات فردی</div>
+  <div class="step-item" id="st2"><div class="step-num">۲</div>رشته و درصدها</div>
+  <div class="step-item" id="st3"><div class="step-num">۳</div>معدل</div>
+  <div class="step-item" id="st4"><div class="step-num">۴</div>نتیجه</div>
+</div>
+
+<div class="container">
+
+  <!-- SECTION 1 -->
+  <div id="sec1">
+    <div class="card">
+      <div class="card-title">
+        <div class="card-title-icon">👤</div>
+        اطلاعات فردی
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="fname">نام</label>
+          <input type="text" id="fname" placeholder="مثال: علی">
+        </div>
+        <div class="form-group">
+          <label for="lname">نام خانوادگی</label>
+          <input type="text" id="lname" placeholder="مثال: احمدی">
+        </div>
+      </div>
+      <div class="form-row single">
+        <div class="form-group">
+          <label for="phone">شماره موبایل</label>
+          <input type="tel" id="phone" placeholder="مثال: ۰۹۱۲۳۴۵۶۷۸۹" maxlength="11">
+        </div>
+      </div>
+      <div class="error-msg" id="err1">لطفاً نام، نام خانوادگی و شماره موبایل را وارد کنید.</div>
+      <div class="btn-row">
+        <button class="btn btn-primary" onclick="goSec2()">مرحله بعد ←</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 2 -->
+  <div id="sec2" class="hidden">
+    <div class="card">
+      <div class="card-title">
+        <div class="card-title-icon">📚</div>
+        رشته و درصد دروس
+      </div>
+
+      <div class="form-row single" style="margin-bottom:22px;">
+        <div class="form-group">
+          <label for="reshte">رشته تحصیلی</label>
+          <select id="reshte" onchange="renderDoros()">
+            <option value="">-- رشته خود را انتخاب کنید --</option>
+            <option value="tajrobi">علوم تجربی</option>
+            <option value="riazi">ریاضی و فنی</option>
+            <option value="ensani">علوم انسانی</option>
+          </select>
+        </div>
+      </div>
+
+      <div id="doros-wrap" class="hidden">
+        <div class="section-label">🎯 دروس اختصاصی فرهنگیان (آزمون اختصاصی)</div>
+        <div class="percent-grid">
+          <div class="percent-item">
+            <div class="percent-label">
+              هوش و استعداد معلمی
+              <span class="zarib-badge gold">ضریب ۳</span>
+            </div>
+            <div class="percent-input-wrap">
+              <input type="number" id="p_hoosh" min="-33" max="100" step="0.01" placeholder="۰" oninput="validatePct(this)">
+              <span class="percent-symbol">%</span>
+            </div>
+          </div>
+          <div class="percent-item">
+            <div class="percent-label">
+              تعلیم و تربیت اسلامی
+              <span class="zarib-badge gold">ضریب ۲</span>
+            </div>
+            <div class="percent-input-wrap">
+              <input type="number" id="p_tarbiat" min="-33" max="100" step="0.01" placeholder="۰" oninput="validatePct(this)">
+              <span class="percent-symbol">%</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="section-label" id="label-takhasosi">📖 دروس تخصصی رشته</div>
+        <div class="percent-grid" id="doros-grid"></div>
+
+        <div class="error-msg" id="err2">لطفاً درصدهای دروس اجباری را وارد کنید.</div>
+        <div class="btn-row">
+          <button class="btn btn-secondary" onclick="goSec1()">← قبلی</button>
+          <button class="btn btn-primary" onclick="goSec3()">مرحله بعد ←</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 3 -->
+  <div id="sec3" class="hidden">
+    <div class="card">
+      <div class="card-title">
+        <div class="card-title-icon">📊</div>
+        معدل نهایی (سوابق تحصیلی)
+      </div>
+
+      <div class="moadel-box">
+        <div class="moadel-icon">🏅</div>
+        <div class="moadel-info">
+          <label for="moadel">معدل کتبی دیپلم (نمرات امتحانات نهایی)</label>
+          <input type="number" id="moadel" min="0" max="20" step="0.01" placeholder="مثال: ۱۸.۵۰">
+          <small>⚠️ منظور معدل کتبی امتحانات نهایی است، نه معدل کل دیپلم | دامنه: ۰ تا ۲۰</small>
+        </div>
+      </div>
+
+      <div class="formula-note" style="margin-top:20px;">
+        <strong>📐 فرمول محاسبه نتیجه نهایی کنکور فرهنگیان ۱۴۰۵:</strong><br>
+        • <strong>۵۰٪</strong> سوابق تحصیلی (معدل نهایی یازدهم و دوازدهم)<br>
+        • <strong>۲۵٪</strong> آزمون کتبی (۱۵٪ دروس تخصصی رشته + ۱۰٪ دروس اختصاصی فرهنگیان)<br>
+        • <strong>۲۵٪</strong> ارزیابی شایستگی معلمی (مصاحبه)<br>
+        <strong>شرط ورود به مصاحبه:</strong> کسب حداقل تراز ۵۰۰۰ در هر دو آزمون (سراسری + اختصاصی فرهنگیان)
+      </div>
+
+      <div class="error-msg" id="err3">لطفاً معدل را بین ۰ تا ۲۰ وارد کنید.</div>
+      <div class="btn-row">
+        <button class="btn btn-secondary" onclick="goSec2()">← قبلی</button>
+        <button class="btn btn-primary" onclick="calculate()">محاسبه و مشاهده نتیجه 🎯</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 4: RESULT -->
+  <div id="result-section">
+
+    <div class="result-hero">
+      <div class="result-name" id="res-name"></div>
+      <div class="result-subtitle" id="res-reshte"></div>
+      <div class="result-scores">
+        <div class="score-box">
+          <div class="score-box-label">تراز تخمینی کنکور</div>
+          <div class="score-box-value" id="res-taraz-konkur">—</div>
+        </div>
+        <div class="score-box gold-box">
+          <div class="score-box-label">تراز معدل (سوابق)</div>
+          <div class="score-box-value" id="res-taraz-moadel">—</div>
+        </div>
+        <div class="score-box">
+          <div class="score-box-label">تراز ترکیبی نهایی</div>
+          <div class="score-box-value" id="res-taraz-final">—</div>
+        </div>
+      </div>
+    </div>
+
+    <div id="save-toast" class="toast" style="display:none;">
+      ✅ اطلاعات شما با موفقیت در GitHub ذخیره شد!
+    </div>
+
+    <div class="analysis-grid">
+      <div class="analysis-card card">
+        <h4>📈 سطح تراز کنکور</h4>
+        <div class="bar-outer"><div class="bar-inner" id="bar-konkur" style="width:0%"></div></div>
+        <div class="bar-pct" id="lbl-konkur"></div>
+      </div>
+      <div class="analysis-card card">
+        <h4>🏅 سطح تراز معدل</h4>
+        <div class="bar-outer"><div class="bar-inner" id="bar-moadel" style="width:0%;background:linear-gradient(90deg,#E9B44C,#F9E090)"></div></div>
+        <div class="bar-pct" id="lbl-moadel"></div>
+      </div>
+    </div>
+
+    <div class="prob-section">
+      <div class="prob-header">
+        <div class="prob-icon">🔮</div>
+        <div>
+          <div class="prob-title">احتمال دعوت به مصاحبه فرهنگیان</div>
+          <div class="prob-subtitle">بر اساس ترازهای محاسبه‌شده و شرایط ۱۴۰۵</div>
+        </div>
+      </div>
+      <div class="prob-gauge">
+        <div class="prob-number" id="prob-num">—</div>
+        <div class="prob-label" id="prob-label">در حال محاسبه...</div>
+      </div>
+      <div class="prob-conditions" id="prob-conditions"></div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">
+        <div class="card-title-icon">🔍</div>
+        جزئیات محاسبه
+      </div>
+      <div id="detail-content" style="font-size:13.5px;line-height:2;color:var(--text-light);"></div>
+      <div class="formula-note" style="margin-top:16px;">
+        <strong>⚠️ توجه مهم:</strong> این محاسبات بر اساس فرمول‌های تقریبی و اطلاعات رسمی منتشرشده برای کنکور ۱۴۰۵ انجام شده است.
+        تراز واقعی توسط سازمان سنجش با داده‌های دقیق میانگین و انحراف معیار کل شرکت‌کنندگان محاسبه می‌شود.
+        برای نتیجه دقیق‌تر از نرم‌افزارهای رسمی مشاوره استفاده کنید.
+      </div>
+      <div class="btn-row">
+        <button class="btn btn-secondary btn-full" onclick="reset()">🔄 محاسبه مجدد</button>
+        <button class="btn btn-primary btn-full" onclick="exportToExcel()" style="margin-top:10px;">📊 دریافت گزارش اکسل</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+// ============================================================
+// GITHUB CONFIG - با اطلاعات خودتون پر کنید
+// ============================================================
+const GITHUB_CONFIG = {
+    owner: 'aslani1388',
+    repo: 'konkur-data',
+    token: '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'
+};
+
+// ============================================================
+// DATA
+// ============================================================
+const DOROS = {
+  tajrobi: [
+    { id:'p_zist',    label:'زیست‌شناسی',  zarib:12 },
+    { id:'p_shimi',   label:'شیمی',         zarib:9  },
+    { id:'p_fizik',   label:'فیزیک',        zarib:7  },
+    { id:'p_riazi',   label:'ریاضی',        zarib:7  },
+    { id:'p_zamin',   label:'زمین‌شناسی',   zarib:1  },
+  ],
+  riazi: [
+    { id:'p_riazi',   label:'ریاضی',        zarib:12 },
+    { id:'p_fizik',   label:'فیزیک',        zarib:9  },
+    { id:'p_shimi',   label:'شیمی',         zarib:7  },
+  ],
+  ensani: [
+    { id:'p_adab',    label:'ادبیات فارسی (علوم و فنون)', zarib:8 },
+    { id:'p_riazi',   label:'ریاضی',                      zarib:6 },
+    { id:'p_arabi',   label:'عربی اختصاصی',               zarib:5 },
+    { id:'p_tarikh',  label:'تاریخ و جغرافیا',             zarib:5 },
+    { id:'p_ijtemai', label:'علوم اجتماعی',               zarib:5 },
+    { id:'p_falsafe', label:'فلسفه و منطق',               zarib:5 },
+    { id:'p_ravan',   label:'روان‌شناسی',                  zarib:4 },
+    { id:'p_eghtesad',label:'اقتصاد',                     zarib:3 },
+  ],
+};
+
+// ============================================================
+// STEP NAVIGATION
+// ============================================================
+function setStep(n) {
+  [1,2,3,4].forEach(i => {
+    const el = document.getElementById('st'+i);
+    el.classList.remove('active','done');
+    if(i < n) el.classList.add('done');
+    if(i === n) el.classList.add('active');
+  });
+}
+
+function goSec1() {
+  hide('sec2'); hide('sec3'); hide('result-section');
+  show('sec1'); setStep(1);
+}
+function goSec2() {
+  const e = document.getElementById('err1');
+  if(!document.getElementById('fname').value.trim() ||
+     !document.getElementById('lname').value.trim() ||
+     !document.getElementById('phone').value.trim()) {
+    e.style.display='block'; return;
+  }
+  e.style.display='none';
+  hide('sec1'); hide('sec3'); hide('result-section');
+  show('sec2'); setStep(2);
+}
+function goSec3() {
+  if(!document.getElementById('reshte').value) {
+    document.getElementById('err2').style.display='block'; return;
+  }
+  document.getElementById('err2').style.display='none';
+  hide('sec2'); hide('result-section');
+  show('sec3'); setStep(3);
+}
+
+function show(id){ document.getElementById(id).classList.remove('hidden'); }
+function hide(id){ document.getElementById(id).classList.add('hidden'); }
+
+// ============================================================
+// RENDER DOROS
+// ============================================================
+function renderDoros() {
+  const reshte = document.getElementById('reshte').value;
+  const wrap = document.getElementById('doros-wrap');
+  const grid = document.getElementById('doros-grid');
+  if(!reshte){ wrap.classList.add('hidden'); return; }
+  wrap.classList.remove('hidden');
+  const list = DOROS[reshte];
+  grid.innerHTML = list.map(d => `
+    <div class="percent-item">
+      <div class="percent-label">
+        ${d.label}
+        <span class="zarib-badge">ضریب ${toFa(d.zarib)}</span>
+      </div>
+      <div class="percent-input-wrap">
+        <input type="number" id="${d.id}" min="-33" max="100" step="0.01" placeholder="۰" oninput="validatePct(this)">
+        <span class="percent-symbol">%</span>
+      </div>
+    </div>
+  `).join('');
+}
+
+function validatePct(el) {
+  let v = parseFloat(el.value);
+  if(isNaN(v)) return;
+  if(v>100) el.value=100;
+  if(v<-33) el.value=-33;
+}
+
+function toFa(n) {
+  return String(n).replace(/\d/g, d => '۰۱۲۳۴۵۶۷۸۹'[d]);
+}
+
+// ============================================================
+// TRAZ CALCULATION
+// ============================================================
+function tarazDars(pct) {
+  if(pct === null || pct === undefined || isNaN(pct)) return 4000;
+  const normalized = (pct/100 * 100);
+  return Math.round(5000 + (normalized - 45) / 15 * 1000);
+}
+
+function tarazKol(dorosList, pcts) {
+  let sumWeighted = 0, sumZarib = 0;
+  dorosList.forEach(d => {
+    const pct = pcts[d.id] ?? 0;
+    const t = tarazDars(pct);
+    sumWeighted += t * d.zarib;
+    sumZarib += d.zarib;
+  });
+  return Math.round(sumWeighted / sumZarib);
+}
+
+function tarazMoadel(m) {
+  if(m < 0) m = 0;
+  if(m > 20) m = 20;
+  return Math.round(m / 20 * 13000);
+}
+
+// ============================================================
+// SAVE TO GITHUB
+// ============================================================
+async function saveToGitHub(data) {
+    try {
+        const url = `https://api.github.com/repos/${GITHUB_CONFIG.owner}/${GITHUB_CONFIG.repo}/contents/data.json`;
+        
+        let sha = null;
+        let existingData = [];
+        
+        try {
+            const response = await fetch(url, {
+                headers: {
+                    'Authorization': `token ${GITHUB_CONFIG.token}`,
+                    'Accept': 'application/vnd.github.v3+json'
+                }
+            });
+            
+            if (response.ok) {
+                const fileData = await response.json();
+                sha = fileData.sha;
+                const content = atob(fileData.content);
+                existingData = JSON.parse(content);
+            }
+        } catch (e) {
+            // فایل وجود نداره
+        }
+        
+        data.timestamp = new Date().toISOString();
+        data.timestampFa = new Date().toLocaleString('fa-IR');
+        existingData.push(data);
+        
+        const newContent = btoa(unescape(encodeURIComponent(JSON.stringify(existingData, null, 2))));
+        
+        const saveResponse = await fetch(url, {
+            method: 'PUT',
+            headers: {
+                'Authorization': `token ${GITHUB_CONFIG.token}`,
+                'Content-Type': 'application/json',
+                'Accept': 'application/vnd.github.v3+json'
+            },
+            body: JSON.stringify({
+                message: `ثبت جدید: ${data.name || 'کاربر ناشناس'}`,
+                content: newContent,
+                sha: sha
+            })
+        });
+        
+        if (!saveResponse.ok) {
+            throw new Error('خطا در ذخیره‌سازی');
+        }
+        
+        return { success: true, total: existingData.length };
+    } catch (error) {
+        console.error('❌ خطا:', error);
+        return { success: false, error: error.message };
+    }
+}
+
+// ============================================================
+// GET DATA FROM GITHUB
+// ============================================================
+async function getDataFromGitHub() {
+    try {
+        const url = `https://api.github.com/repos/${GITHUB_CONFIG.owner}/${GITHUB_CONFIG.repo}/contents/data.json`;
+        const response = await fetch(url, {
+            headers: {
+                'Authorization': `token ${GITHUB_CONFIG.token}`,
+                'Accept': 'application/vnd.github.v3+json'
+            }
+        });
+        
+        if (!response.ok) {
+            if (response.status === 404) {
+                return [];
+            }
+            throw new Error('خطا در دریافت داده');
+        }
+        
+        const fileData = await response.json();
+        const content = decodeURIComponent(escape(atob(fileData.content)));
+        return JSON.parse(content);
+    } catch (error) {
+        console.error('❌ خطا:', error);
+        return [];
+    }
+}
+
+// ============================================================
+// EXPORT TO EXCEL (CSV)
+// ============================================================
+async function exportToExcel() {
+    const data = await getDataFromGitHub();
+    
+    if (data.length === 0) {
+        alert('هیچ داده‌ای برای خروجی وجود ندارد!');
+        return;
+    }
+    
+    const headers = Object.keys(data[0]);
+    let csv = headers.join(',') + '\n';
+    
+    data.forEach(row => {
+        const values = headers.map(key => {
+            let val = row[key] || '';
+            if (typeof val === 'string' && (val.includes(',') || val.includes('"'))) {
+                val = `"${val.replace(/"/g, '""')}"`;
+            }
+            return val;
+        });
+        csv += values.join(',') + '\n';
+    });
+    
+    const blob = new Blob(['\uFEFF' + csv], { type: 'text/csv;charset=utf-8;' });
+    const link = document.createElement('a');
+    link.href = URL.createObjectURL(blob);
+    link.download = `responses_${new Date().toISOString().slice(0,10)}.csv`;
+    link.click();
+}
+
+// ============================================================
+// CALCULATE
+// ============================================================
+async function calculate() {
+  const moadel = parseFloat(document.getElementById('moadel').value);
+  if(isNaN(moadel) || moadel < 0 || moadel > 20) {
+    document.getElementById('err3').style.display='block'; return;
+  }
+  document.getElementById('err3').style.display='none';
+
+  const reshte = document.getElementById('reshte').value;
+  const fname  = document.getElementById('fname').value.trim();
+  const lname  = document.getElementById('lname').value.trim();
+
+  const pcts = {};
+  pcts['p_hoosh']   = parseFloat(document.getElementById('p_hoosh').value)   || 0;
+  pcts['p_tarbiat'] = parseFloat(document.getElementById('p_tarbiat').value) || 0;
+
+  const takhasosiList = DOROS[reshte] || [];
+  takhasosiList.forEach(d => {
+    pcts[d.id] = parseFloat(document.getElementById(d.id)?.value) || 0;
+  });
+
+  const farhangianList = [
+    { id:'p_hoosh',   label:'هوش و استعداد معلمی', zarib:3 },
+    { id:'p_tarbiat', label:'تعلیم و تربیت اسلامی', zarib:2 },
+  ];
+
+  const tarazFarhangian = tarazKol(farhangianList, pcts);
+  const tarazTakhasosi  = tarazKol(takhasosiList, pcts);
+  const tarazKonkur = Math.round(tarazTakhasosi * 0.60 + tarazFarhangian * 0.40);
+  const tarazM = tarazMoadel(moadel);
+  const tarazFinal = Math.round(tarazKonkur * 0.50 + tarazM * 0.50);
+
+  const { prob, label, cls, conditions } = calcProb(tarazKonkur, tarazFarhangian, tarazM, tarazFinal, moadel);
+
+  document.getElementById('res-name').textContent = `${fname} ${lname}`;
+  document.getElementById('res-reshte').textContent =
+    reshte==='tajrobi'?'علوم تجربی':reshte==='riazi'?'ریاضی و فنی':'علوم انسانی';
+
+  document.getElementById('res-taraz-konkur').textContent = toFa(tarazKonkur.toLocaleString());
+  document.getElementById('res-taraz-moadel').textContent  = toFa(tarazM.toLocaleString());
+  document.getElementById('res-taraz-final').textContent   = toFa(tarazFinal.toLocaleString());
+
+  const pctKonkur = Math.min(100, Math.round(tarazKonkur/13000*100));
+  const pctMoadel = Math.min(100, Math.round(tarazM/13000*100));
+  document.getElementById('bar-konkur').style.width = pctKonkur+'%';
+  document.getElementById('bar-moadel').style.width  = pctMoadel+'%';
+  document.getElementById('lbl-konkur').textContent = `تراز ${tarazKonkur.toLocaleString()} — ${tarazLevel(tarazKonkur)}`;
+  document.getElementById('lbl-moadel').textContent  = `تراز ${tarazM.toLocaleString()} — ${tarazLevel(tarazM)}`;
+
+  const probEl = document.getElementById('prob-num');
+  probEl.textContent = prob + '%';
+  probEl.className = 'prob-number ' + cls;
+  const lblEl = document.getElementById('prob-label');
+  lblEl.textContent = label;
+  lblEl.className = 'prob-label ' + cls;
+
+  document.getElementById('prob-conditions').innerHTML = conditions
+    .map(c => `<div class="cond-item ${c.cls}"><span class="cond-icon">${c.icon}</span><span>${c.text}</span></div>`)
+    .join('');
+
+  let detail = '';
+  detail += `<b>اطلاعات فردی:</b> ${fname} ${lname} | ${document.getElementById('phone').value}<br>`;
+  detail += `<br><b>دروس اختصاصی فرهنگیان:</b><br>`;
+  detail += `• هوش و استعداد معلمی (ضریب ۳): ${pcts['p_hoosh']}٪ → تراز ~${tarazDars(pcts['p_hoosh']).toLocaleString()}<br>`;
+  detail += `• تعلیم و تربیت اسلامی (ضریب ۲): ${pcts['p_tarbiat']}٪ → تراز ~${tarazDars(pcts['p_tarbiat']).toLocaleString()}<br>`;
+  detail += `• تراز آزمون اختصاصی فرهنگیان: <b>${tarazFarhangian.toLocaleString()}</b><br>`;
+  detail += `<br><b>دروس تخصصی رشته:</b><br>`;
+  takhasosiList.forEach(d => {
+    const p = pcts[d.id];
+    detail += `• ${d.label} (ضریب ${d.zarib}): ${p}٪ → تراز ~${tarazDars(p).toLocaleString()}<br>`;
+  });
+  detail += `• تراز دروس تخصصی رشته: <b>${tarazTakhasosi.toLocaleString()}</b><br>`;
+  detail += `<br><b>محاسبه نهایی:</b><br>`;
+  detail += `• تراز ترکیبی کنکور: ${tarazKonkur.toLocaleString()}<br>`;
+  detail += `• معدل کتبی وارد شده: ${moadel} → تراز معدل: <b>${tarazM.toLocaleString()}</b><br>`;
+  detail += `• تراز نهایی (۵۰٪ کنکور + ۵۰٪ معدل): <b>${tarazFinal.toLocaleString()}</b><br>`;
+  document.getElementById('detail-content').innerHTML = detail;
+
+  // ============================================================
+  // SAVE TO GITHUB
+  // ============================================================
+  const formData = {
+      name: `${fname} ${lname}`,
+      phone: document.getElementById('phone').value,
+      reshte: reshte==='tajrobi'?'علوم تجربی':reshte==='riazi'?'ریاضی و فنی':'علوم انسانی',
+      moadel: moadel,
+      tarazKonkur: tarazKonkur,
+      tarazFarhangian: tarazFarhangian,
+      tarazTakhasosi: tarazTakhasosi,
+      tarazMoadel: tarazM,
+      tarazFinal: tarazFinal,
+      hoosh: pcts['p_hoosh'],
+      tarbiat: pcts['p_tarbiat']
+  };
+  
+  takhasosiList.forEach(d => {
+      formData[d.id] = pcts[d.id];
+  });
+
+  const result = await saveToGitHub(formData);
+  const toast = document.getElementById('save-toast');
+  if (result.success) {
+      toast.textContent = `✅ اطلاعات با موفقیت ذخیره شد! (تعداد کل: ${result.total} ثبت)`;
+      toast.style.display = 'block';
+  } else {
+      toast.textContent = `❌ خطا در ذخیره‌سازی: ${result.error || 'مشخص نیست'}`;
+      toast.style.display = 'block';
+      toast.style.background = '#FDEDEC';
+      toast.style.color = '#922B21';
+      toast.style.borderColor = '#E74C3C';
+  }
+
+  hide('sec1'); hide('sec2'); hide('sec3');
+  show('result-section');
+  document.getElementById('result-section').style.display='block';
+  setStep(4);
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+
+function tarazLevel(t) {
+  if(t>=9000) return '🌟 ممتاز';
+  if(t>=7500) return '✅ خوب';
+  if(t>=6500) return '🟡 متوسط خوب';
+  if(t>=5000) return '🟠 متوسط';
+  return '🔴 ضعیف';
+}
+
+function calcProb(tarazKonkur, tarazFarhangian, tarazM, tarazFinal, moadel) {
+  const conditions = [];
+  let score = 0;
+
+  const c1ok = tarazKonkur >= 5000;
+  conditions.push({
+    icon: c1ok?'✅':'❌',
+    cls: c1ok?'cond-ok':'cond-bad',
+    text: `تراز کنکور سراسری/اختصاصی: ${tarazKonkur.toLocaleString()} ${c1ok?'(≥ ۵۰۰۰ ✓)':'(زیر حد نصاب ۵۰۰۰ — دعوت به مصاحبه ممکن نیست)'}`
+  });
+  if(c1ok) score += 30;
+
+  const c2ok = tarazFarhangian >= 5000;
+  conditions.push({
+    icon: c2ok?'✅':'⚠️',
+    cls: c2ok?'cond-ok':'cond-warn',
+    text: `تراز آزمون اختصاصی فرهنگیان: ${tarazFarhangian.toLocaleString()} ${c2ok?'(≥ ۵۰۰۰ ✓)':'(توصیه: بالای ۵۰۰۰ باشد)'}`
+  });
+  if(c2ok) score += 20;
+
+  const c3ok = tarazFinal >= 6000;
+  const c3g  = tarazFinal >= 7000;
+  conditions.push({
+    icon: c3g?'🌟':c3ok?'✅':'⚠️',
+    cls: c3g?'cond-ok':c3ok?'cond-ok':'cond-warn',
+    text: `تراز ترکیبی نهایی: ${tarazFinal.toLocaleString()} — ${c3g?'عالی، شانس قبولی بالاست':c3ok?'قابل قبول، رقابتی است':'نیاز به بهبود (حداقل توصیه‌شده ۶۰۰۰)'}`
+  });
+  if(c3g) score += 35;
+  else if(c3ok) score += 20;
+
+  const c4g  = moadel >= 18;
+  const c4ok = moadel >= 15;
+  conditions.push({
+    icon: c4g?'🏅':c4ok?'✅':'⚠️',
+    cls: c4g?'cond-ok':c4ok?'cond-ok':'cond-warn',
+    text: `معدل کتبی: ${moadel} ${c4g?'(ممتاز — سهم سوابق تحصیلی قوی است)':c4ok?'(متوسط — بهبود معدل توصیه می‌شود)':'(پایین — تأثیر منفی بر تراز سوابق)'}`
+  });
+  if(c4g) score += 15;
+  else if(c4ok) score += 8;
+
+  if(!c1ok) {
+    return {
+      prob: 0, cls:'prob-low',
+      label:'بدون کسب حداقل تراز ۵۰۰۰، امکان دعوت به مصاحبه وجود ندارد.',
+      conditions
+    };
+  }
+
+  const prob = Math.min(95, Math.max(5, score));
+  let label, cls;
+  if(prob >= 75)      { label='احتمال بالای دعوت به مصاحبه'; cls='prob-high'; }
+  else if(prob >= 45) { label='احتمال متوسط — رقابتی است'; cls='prob-mid'; }
+  else                { label='احتمال پایین — نیاز به تقویت'; cls='prob-low'; }
+
+  return { prob, label, cls, conditions };
+}
+
+function reset() {
+  document.getElementById('result-section').style.display='none';
+  document.getElementById('result-section').classList.add('hidden');
+  document.getElementById('save-toast').style.display = 'none';
+  goSec1();
+  ['fname','lname','phone','moadel','p_hoosh','p_tarbiat'].forEach(id => {
+    const el = document.getElementById(id);
+    if(el) el.value='';
+  });
+  document.getElementById('reshte').value='';
+  document.getElementById('doros-wrap').classList.add('hidden');
+  document.getElementById('doros-grid').innerHTML='';
+}
+</script>
+</body>
+</html>
